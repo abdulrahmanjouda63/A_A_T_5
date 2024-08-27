@@ -15,17 +15,17 @@ export class MyTranslateService {
 
     if(  isPlatformBrowser(platformId) )
     {
-      
+
       this.setLang()
     }
-   
-  
+
+
    }
 
    setLang()
    {
-
-    let storedLang:string =  localStorage.getItem("lang")!
+    if(localStorage.getItem("lang")!= null){
+      let storedLang:string = localStorage.getItem("lang")!
 
       // words
     this._TranslateService.use(storedLang)
@@ -41,6 +41,8 @@ export class MyTranslateService {
       document.body.dir = 'rtl'
 
     }
+    }
+
 
    }
 
